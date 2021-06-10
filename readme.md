@@ -1,7 +1,6 @@
-# Project Name
+# Python Worker Extension Timer
 
-Python Worker Extension Timer. This is an example repo to demonstrate how to
-build a Python Worker extension in Azure Functions.
+This is an example repo to demonstrate how to build a Python Worker extension in Azure Functions.
 
 ## Features
 
