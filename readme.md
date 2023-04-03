@@ -13,8 +13,8 @@ This project framework provides the following features:
 
 ### Prerequisites
 
-* [Python 3.6.x or above](https://www.python.org/downloads/release/python-374/). To check the full list of supported Python versions in Azure Functions, see the [Python developer guide](https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-python#python-version).
-* The [Azure Functions Core Tools](functions-run-local.md#v2), version 3.0.3568 or later.
+* [Python 3.7 or above](https://www.python.org/downloads). To check the full list of supported Python versions in Azure Functions, see the [Python developer guide](https://docs.microsoft.com/azure/azure-functions/functions-reference-python#python-version).
+* The [Azure Functions Core Tools](functions-run-local.md#v2), version 4.0.5095 or later to support v2 [Python programming model](https://learn.microsoft.com/azure/azure-functions/functions-reference-python).
 * [Visual Studio Code](https://code.visualstudio.com/) installed on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
 ### Demo
@@ -33,14 +33,17 @@ Each http response reports the time elapsed of processing the request.
 
 To install this Python worker extension package in an existing function app:
 
-- Add a VCS URL in your requirements.txt `git+https://github.com/Azure-Samples/python-worker-extension-timer`
-- Run `pip install -r requirements.txt`
-- In your FunctionApp/HttpTrigger, add the following lines to enable this feature:
+* Add a VCS URL in your requirements.txt `git+https://github.com/Azure-Samples/python-worker-extension-timer`
+* Run `pip install -r requirements.txt`
+* In your FunctionApp/HttpTrigger, add the following lines to enable this feature:
 
 ```python
 from python_worker_extension_timer import TimerExtension
 TimerExtension.configure(append_to_http_response=True)
 ```
+
+In the v1 programming model, add the lines in the *\_\_init.py\_\_* file. In the v2 programming model, add the lines in the *function_app.py* file.
+
 ## Resources
 
-- [Develop Python worker extensions for Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/develop-python-worker-extensions)
+* [Develop Python worker extensions for Azure Functions](https://learn.microsoft.com/azure/azure-functions/develop-python-worker-extensions)
